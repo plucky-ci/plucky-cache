@@ -1,0 +1,27 @@
+{
+  "name": "plucky-cache",
+  "version": "0.0.1",
+  "description": "in memory cache for tasks",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "lab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plucky-ci/plucky-cache.git"
+  },
+  "author": "Hung Chen <hung.chen.ucf@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plucky-ci/plucky-cache/issues"
+  },
+  "homepage": "https://github.com/plucky-ci/plucky-cache#readme",
+  "dependencies": {
+    "code": "^4.0.0",
+    "lab": "^11.2.1",
+    "plucky-pipeliner": "0.0.4"
+  }
+}
