@@ -7,7 +7,7 @@ class SetCache extends Task {
 	}
 
 	handler(state, next) {
-		this.cache = Object.assign(this.cache, state.params);
+		this.cache[state.params.key] = state.lastState;
 		next(0, {cache: this.cache})
 	}
 }
@@ -20,7 +20,7 @@ class GetCache extends Task {
 	
 
 	handler(state, next) {
-		const list = state.params.cacheKeys;
+		const list = state.params.getKeys;
 		const result = {};
 		list.forEach((key) => {
 			result[key] = this.cache[key];

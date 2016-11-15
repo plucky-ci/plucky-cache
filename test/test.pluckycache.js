@@ -15,9 +15,9 @@ const noop = ()=>{};
 describe('PluckyCache', ()=>{
 	it('set the cache object and get the cache object', (done) => {
 		const pluckyCache = new PluckyCache();
-		pluckyCache.set.handler({params: {'foo': 'bar'}}, (code, value) => {
-			pluckyCache.get.handler({params: {cacheKeys: ['foo']}}, (code, value) => {
-				expect(value.cache.foo).to.be.equal('bar');
+		pluckyCache.set.execute({lastCode: 0, lastState: 'lastState', params: {key:'foo'}}, (code, value) => {
+			pluckyCache.get.execute({lastCode: 0, params: {getKeys: ['foo']}}, (code, value) => {
+				expect(value.cache.foo).to.be.equal('lastState');
 				expect(code).to.be.equal(0);
 				done();
 			});
@@ -27,7 +27,7 @@ describe('PluckyCache', ()=>{
 
 	it('get the cache should return undefined', (done) => {
 		const pluckyCache = new PluckyCache();
-		pluckyCache.get.handler({params: {cacheKeys: ['foo']}}, (code, value) => {
+		pluckyCache.get.handler({params: {getKeys: ['foo']}}, (code, value) => {
 			expect(value.cache.foo).to.be.equal(undefined);
 			expect(code).to.be.equal(0);
 			done();
